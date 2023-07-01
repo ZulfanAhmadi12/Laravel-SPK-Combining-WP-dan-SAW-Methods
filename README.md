@@ -1,66 +1,21 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## About This Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The Employee Selection Decision Support System is a website that utilizes the Weighted Product and SAW (Simple Additive Weighting) methods to aid in the process of selecting new employees for a company. The system provides a user-friendly interface and offers various functionalities to streamline the employee selection process.
 
-## About Laravel
+The website allows the user to input alternative options, which in this case are the names of the candidates applying for positions within the company. The user can add alternatives by accessing the "Add Alternative" feature under the "Alternative Settings" menu. A list of added alternatives can be viewed in the "View Alternatives" section, where the user has the ability to delete or modify alternatives as needed. Upon successful addition of an alternative, a notification of success is displayed.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The selection criteria are chosen based on their relevance and importance in the employee recruitment process. The system enables the user to add criteria through the "Criteria Settings" menu on the "Add Criteria" page. Each criterion is assigned a weight that represents its level of significance. The weight scale ranges from 1 to 100. The user can view the list of criteria on the "View Criteria" page, where criteria can be deleted or modified according to the user's requirements.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+In addition to criteria, each criterion needs to have its attributes defined. Attributes are divided into two categories: "Cost" and "Benefit." The "Cost" attribute is assigned to criteria that have sub-criteria or variables where lower weights or values are considered better. For example, the "Salary Expectation" criterion may have sub-criteria such as <= RP. 1,000,000 (weight = 1) and RP. 1,000,000 - 2,000,000 (weight = 2). In this case, the sub-criterion with the lower weight, <= RP. 1,000,000, is considered better.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+On the other hand, the "Benefit" attribute represents the opposite of the "Cost" attribute. Higher weights are considered better for sub-criteria falling under the "Benefit" attribute. For example, the "Experience" criterion may have sub-criteria such as <= 1 year (weight = 1) and 1-2 years (weight = 2). In this case, the sub-criterion with the higher weight, 1-2 years, is considered better.
 
-## Learning Laravel
+The system allows the user to add sub-criteria, also known as variables, through the "Sub-Criteria Settings" menu. It is important to ensure that criteria are defined before adding sub-criteria. The user can enter the name of the sub-criterion, select the corresponding criterion it belongs to, and assign a weight to the sub-criterion. The weight scale ranges from 1 to 5, with 1 being the lowest and 5 being the highest. The list of added sub-criteria can be viewed on the "View Sub-Criteria" page, where they can be deleted or modified based on the user's needs.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Project's Screenshot
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<figure>
+    <img src="https://github.com/ZulfanAhmadi12/MyPortfolio/blob/main/homefirst.png"
+         alt="Home Top Page" width="600" height="300">
+    <figcaption>Screenshot Home Page, at the top of the page.</figcaption>
+</figure>
