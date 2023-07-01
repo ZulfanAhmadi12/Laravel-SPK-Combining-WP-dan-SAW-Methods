@@ -15,7 +15,7 @@ The system allows the user to add sub-criteria, also known as variables, through
 ## Project's Screenshot
 
 <figure>
-    <img src="https://github.com/ZulfanAhmadi12/MyPortfolio/blob/main/homefirst.png"
-         alt="Home Top Page" width="600" height="300">
+    <img src="https://github.com/ZulfanAhmadi12/Laravel-SPK-Metode-WP-dan-SAW/blob/master/spkscreenshot.png"
+         alt="Home Top Page" width="700" height="400">
     <figcaption>Screenshot Home Page, at the top of the page.</figcaption>
 </figure>
