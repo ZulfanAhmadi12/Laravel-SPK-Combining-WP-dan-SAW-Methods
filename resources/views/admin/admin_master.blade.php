@@ -90,11 +90,6 @@
 
 
         <!-- JAVASCRIPT -->
-        <script>
-            document.getElementById('vertical-menu-btn').addEventListener('click', function () {
-                document.querySelector('.vertical-menu').classList.toggle('collapsed');
-            });
-        </script>
         <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('backend/assets/libs/metismenu/metisMenu.min.js') }}"></script>

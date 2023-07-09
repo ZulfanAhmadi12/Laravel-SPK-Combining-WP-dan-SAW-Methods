@@ -32,11 +32,13 @@ Route::post('/adminlogin', [AdminController::class, 'login'])->name('admin.login
 // Admin All Route
 Route::controller(AdminController::class)->middleware(['auth', 'user-role:admin' ])->group(function() {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
+    Route::get('/admin/lihatpengguna', 'LihatPengguna')->name('lihat.pengguna');
     Route::get('/admin/register', 'create')->name('register.admin');
     Route::post('/admin/register/account', 'store')->name('register.admin.account');
     Route::get('/admin/profile', 'Profile')->name('admin.profile');
-    Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
-    Route::post('/store/profile', 'StoreProfile')->name('store.profile');
+    Route::get('/ubah/pengguna/{id}', 'UbahPengguna')->name('ubah.pengguna');
+    Route::get('/hapus/pengguna/{id}', 'HapusPengguna')->name('hapus.pengguna');
+    Route::post('/update/pengguna', 'UpdatePengguna')->name('update.pengguna');
 
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');

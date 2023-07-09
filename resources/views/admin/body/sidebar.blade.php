@@ -1,9 +1,23 @@
 <div class="vertical-menu">
 
+    @php 
+    $id = Auth::user()->id;
+    $user = App\Models\User::find($id);
+    @endphp
+
     <div data-simplebar class="h-100">
+
         <!-- User details -->
-
-
+        <div class="user-profile text-center mt-3">
+            <div class="">
+                <img src="{{ (!empty($user->profile_image)) 
+                    ? url('upload/admin_image/'.$user->profile_image)
+                    : url('upload/no_image.jpg') }}" alt="" class="avatar-md rounded-circle">
+            </div>
+            <div class="mt-3">
+                <h4 class="font-size-16 mb-1">{{ $user->name }}</h4>
+            </div>
+        </div>
         <!--- Sidemenu -->
         <div id="sidebar-menu" >
             <!-- Left Menu Start -->
@@ -53,14 +67,25 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-clipboard-list"></i>
-                        <span>Nilai Alternatif</span>
+                        <span style="font-size: 11px;">Pengaturan Nilai Alternatif</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('lihat.alternatifkriteria') }}">Lihat Nilai Alternatif</a></li>
                         <li><a href="{{ route('tambah.alternatifkriteria') }}">Tambah Nilai Alternatif</a></li>
                         <li><a href="{{ route('lihat.skoralternatif') }}">Lihat Skor Alternatif</a></li>
                     </ul>
-                </li>                
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Pengaturan Pengguna</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('lihat.pengguna') }}">Lihat Pengguna</a></li>
+                        <li><a href="{{ route('register.admin') }}">Tambah Pengguna</a></li>
+                    </ul>
+                </li>     
             </ul>
         </div>
         <!-- Sidebar -->

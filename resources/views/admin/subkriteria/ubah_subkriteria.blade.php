@@ -37,7 +37,7 @@ $kriteria = App\Models\Kriteria::latest()->get();
                     <select class="form-select" aria-label="Default select example" name="kriteria_id" id="kriteria_id">
                             <option value="">Pilih Salah Satu</option>
                             @foreach($kriteria as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama_kriteria }}</option>
+                            <option value="{{ $item->id }}" {{ $item->id == $subkriteria->kriteria_id ? 'selected' : '' }}>{{ $item->nama_kriteria }}</option>
                             @endforeach
                         </select>
                         @error('kriteria_id')

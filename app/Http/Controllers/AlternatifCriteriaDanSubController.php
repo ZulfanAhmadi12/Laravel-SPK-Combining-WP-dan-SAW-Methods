@@ -75,7 +75,7 @@ class AlternatifCriteriaDanSubController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('lihat.alternatifkriteria')->with($notification);
+        return redirect()->route('tambah.alternatifkriteria')->with($notification);
     } // End Method
 
     public function TambahAlternatifKriteria(){
@@ -173,6 +173,7 @@ class AlternatifCriteriaDanSubController extends Controller
         // Akhir Melakukan Normalisasi
 
 
+
         // Perhitungan WP Menggunakan Hasil Normalisasi SAW
 
         // Perbaiki Bobot Kriteria
@@ -189,7 +190,7 @@ class AlternatifCriteriaDanSubController extends Controller
         foreach($fixBobotKriteria as $id => $item){
             $atribut_kriteria = $kriteria->where('id', $id)->value('atribut_kriteria');
             if($atribut_kriteria == 'Cost'){
-                $fixBobotKriteria[$id] =  $item / $sum; 
+                $fixBobotKriteria[$id] =  -1 * $item / $sum; 
             }else{
                 $fixBobotKriteria[$id] = $item / $sum; 
             }
@@ -210,7 +211,8 @@ class AlternatifCriteriaDanSubController extends Controller
             }
             $hasilPerhitunganVektorS[$alternatifId] = $nilaiVektor;
         }
-        
+
+
         // Menghitung Vektor V
 
         $sumVektorS = array_sum($hasilPerhitunganVektorS);
@@ -219,6 +221,7 @@ class AlternatifCriteriaDanSubController extends Controller
             $hasilPerhitunganVektorV[$id] = $value / $sumVektorS;
         }
         // Akhir Perhitungan WP
+
         return $hasilPerhitunganVektorV;
 
         // // Perhitungan Perkalian Bobot Kriteria dan Hasil Normalisasi Nilai Sub-Kriteria Menggunakan Metode SAW

@@ -11,7 +11,7 @@ class KriteriaController extends Controller
     //
 
     public function LihatKriteria(){
-        $kriteria = Kriteria::latest()->get();
+        $kriteria = Kriteria::get();
         return view('admin.kriteria.lihat_kriteria', compact('kriteria'));
 
 

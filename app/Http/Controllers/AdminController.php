@@ -70,6 +70,7 @@ class AdminController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 0,
         ]);
 
         // event(new Registered($user));
@@ -89,24 +90,48 @@ class AdminController extends Controller
 
     }// End method
 
-    public function EditProfile(){
-        $id = Auth::user()->id;
-        $editData = User::find($id);
-        return view('admin.admin_profile_edit', compact('editData'));
+    public function LihatPengguna(){
+        $currentUserId = Auth::user()->id;
+        $pengguna = User::latest()->get();
+        $pengguna = User::where('id', '!=', $currentUserId)->latest()->get();
+        return view('admin.pengguna.lihat_pengguna', compact('pengguna'));
+
 
     }// End Method
 
-    public function StoreProfile(Request $request){
-        $id = Auth::user()->id;
+    public function HapusPengguna($id){
+
+        User::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Pengguna telah berhasil dihapus',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);    
+
+
+    }// End Method
+
+    public function UbahPengguna($id){
+
+        $pengguna = User::findOrFail($id);
+        return view('admin.pengguna.ubah_pengguna', compact('pengguna'));
+
+    }// End Method
+
+    public function UpdatePengguna(Request $request){
+        $id = $request->id;
         $data = User::find($id);
         $data->name = $request->name; // because the name="name" $request->name then
         $data->email = $request->email;
         $data->username = $request->username;
+        $data->role = $request->role;
 
         // Handling storing image
         if($request->file('profile_image')){
             $file = $request->file('profile_image');
-
+            // Unlink or Delete the Old Image using unlink()
+            @unlink(public_path('upload/admin_image/'.$data->profile_image));
             $filename = date('YmdHi').$file->getClientOriginalName(); // Setting the name of file store into database. the Date of the file added + original filename
             $file->move(public_path('upload/admin_image'), $filename);
             $data['profile_image'] = $filename;
@@ -114,11 +139,11 @@ class AdminController extends Controller
         $data->save();
 
         $notification = array(
-            'message' => 'Admin Profile Updated Successfully',
+            'message' => 'Pengguna Berhasil diubah',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('admin.profile')->with($notification);
+        return redirect()->route('dashboard')->with($notification);
 
     }// End Method
 

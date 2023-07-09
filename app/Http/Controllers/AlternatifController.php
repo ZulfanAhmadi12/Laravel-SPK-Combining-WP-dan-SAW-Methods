@@ -11,7 +11,7 @@ class AlternatifController extends Controller
 {
     //
     public function LihatAlternatif(){
-        $alternatif = Alternatif::latest()->get();
+        $alternatif = Alternatif::get();
         return view('admin.alternatif.lihat_alternatif', compact('alternatif'));
 
 

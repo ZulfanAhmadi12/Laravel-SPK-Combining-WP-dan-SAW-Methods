@@ -7,6 +7,7 @@
 $kriteria = App\Models\Kriteria::latest()->get();
 $subkriteria = App\Models\SubKriteria::latest()->get();
 $alternatif = App\Models\Alternatif::latest()->get();
+$user = App\Models\User::latest()->get();
 
 $skoralternatif = App\Models\SkorAlternatif::orderByDesc('skor')->get();
 
@@ -34,13 +35,13 @@ $skoralternatif = App\Models\SkorAlternatif::orderByDesc('skor')->get();
 <!-- end page title -->
 
 <div class="row">
-<div class="col-xl-4 col-md-6">
+<div class="col-xl-3 col-md-6">
 <div class="card">
     <div class="card-body">
         <div class="d-flex">
             <div class="flex-grow-1">
-                <p class="text-truncate font-size-14 mb-2">Total Alternatif</p>
-                <h4 class="mb-2">{{ $alternatif->count() }}</h4>
+                <p class="text-truncate font-size-14 mb-2">Total Pengguna</p>
+                <h4 class="mb-2">{{ $user->count() }}</h4>
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-primary rounded-3">
@@ -51,7 +52,24 @@ $skoralternatif = App\Models\SkorAlternatif::orderByDesc('skor')->get();
     </div><!-- end cardbody -->
 </div><!-- end card -->
 </div><!-- end col -->
-<div class="col-xl-4 col-md-6">
+<div class="col-xl-3 col-md-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="flex-grow-1">
+                    <p class="text-truncate font-size-14 mb-2">Total Alternatif</p>
+                    <h4 class="mb-2">{{ $alternatif->count() }}</h4>
+                </div>
+                <div class="avatar-sm">
+                    <span class="avatar-title bg-light text-primary rounded-3">
+                        <i class="fas fa-user-tie font-size-24"></i>  
+                    </span>
+                </div>
+            </div>                                            
+        </div><!-- end cardbody -->
+    </div><!-- end card -->
+    </div><!-- end col -->
+<div class="col-xl-3 col-md-6">
 <div class="card">
     <div class="card-body">
         <div class="d-flex">
@@ -68,7 +86,7 @@ $skoralternatif = App\Models\SkorAlternatif::orderByDesc('skor')->get();
     </div><!-- end cardbody -->
 </div><!-- end card -->
 </div><!-- end col -->
-<div class="col-xl-4 col-md-6">
+<div class="col-xl-3 col-md-6">
 <div class="card">
     <div class="card-body">
         <div class="d-flex">
@@ -218,7 +236,7 @@ $skoralternatif = App\Models\SkorAlternatif::orderByDesc('skor')->get();
                     <tr>
                         <td><h6 class="mb-0">{{ $i++ }}</h6></td>
                         <td>{{ $alternatif->where('id' , $item->alternatif_id)->value('nama_alternatif')}}</td>
-                        <td>{{ $alternatif->where('id' , $item->alternatif_id)->value('deskripsi_alternatif')}}</td>
+                        <td>{!! $alternatif->where('id' , $item->alternatif_id)->value('deskripsi_alternatif')!!}</td>
                         <td>
                             <div class="font-size-13"><i class="ri-checkbox-blank-circle-fill font-size-10 text-success align-middle me-2"></i>{{ $item->skor }}</div>
                         </td>

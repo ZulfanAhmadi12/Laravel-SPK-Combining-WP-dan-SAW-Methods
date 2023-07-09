@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 @php 
 
-$kriteria = App\Models\Kriteria::with('subKriterias')->latest()->get();
+$kriteria = App\Models\Kriteria::with('subKriterias')->get();
 $alternatif = App\Models\Alternatif::latest()->get();
     // The code assign to the $subKriterias will take the subKriterias() eloquent function result from $kriteria. then you can directly access the value of subKriterias like this dd($subKriterias[0]->nama_subkriteria);
     // With this i don't have to query two times by calling the instance using just latest()->get() then calling the relation using eloquent function in models. 

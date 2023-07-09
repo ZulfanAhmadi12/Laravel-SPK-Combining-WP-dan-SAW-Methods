@@ -2,26 +2,25 @@
     <div class="navbar-header">
         <div class="d-flex">
             <!-- LOGO -->
-            {{-- <div class="navbar-brand-box">
+            <div class="navbar-brand-box">
                 <a href="{{ route('dashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('backend/assets/images/logoportofolio.png') }}" alt="logo-sm" height="22">
+                        <img src="{{ asset('backend/assets/images/lambangUMP.png') }}" alt="logo-sm" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('backend/assets/images/logoportofolio.png') }}" alt="logo-dark" height="20">
+                        <img src="{{ asset('backend/assets/images/lambangUMP.png') }}" alt="logo-dark" height="20">
                     </span>
                 </a>
 
                 <a href="{{ route('dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('backend/assets/images/logoportofolio.png') }}" alt="logo-sm-light" height="35">
+                        <img src="{{ asset('backend/assets/images/lambangUMP.png') }}" alt="logo-sm-light" height="35">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('backend/assets/images/logoportofolio.png') }}" alt="logo-light" height="33">
+                        <img src="{{ asset('backend/assets/images/lambangUMP.png') }}" alt="logo-light" height="33">
                     </span>
                 </a>
-            </div> --}}
-
+            </div>
             <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
                 <i class="ri-menu-2-line align-middle"></i>
             </button>
@@ -64,7 +63,6 @@
                     <!-- item-->
                     <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                     <a class="dropdown-item" href="{{ route('change.password') }}"><i class="ri-wallet-2-line align-middle me-1"></i>Change Password</a>
-                    <a class="dropdown-item" href="{{ route('register.admin') }}"><i class="ri-lock-unlock-line align-middle me-1"></i>Register Other Account</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
                 </div>
